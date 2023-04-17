@@ -157,6 +157,7 @@ export default () => {
         <Login
           setIsLogin={setIsLogin}
           setUser={setUser}
+          getList={getList}
         />
       </Show>
 

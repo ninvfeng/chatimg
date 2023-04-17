@@ -4,6 +4,7 @@ import type { Setter } from 'solid-js'
 interface Props {
   setIsLogin: Setter<boolean>
   setUser: Setter<User>
+  getList: Function
 }
 
 export default (props: Props) => {
@@ -29,6 +30,7 @@ export default (props: Props) => {
       localStorage.setItem('user', JSON.stringify(responseJson.data))
       props.setIsLogin(true)
       props.setUser(responseJson.data)
+      props.getList()
     } else {
       // eslint-disable-next-line no-alert
       alert(responseJson.message)
