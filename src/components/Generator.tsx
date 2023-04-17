@@ -138,7 +138,7 @@ export default () => {
   }
 
   return (
-    <div class="my-1 max-w-[512px]">
+    <div class="my-1 sm:max-w-[512px]">
       <div>
         <Show when={!isLogin()}>
           <p mt-1 op-60>欢迎来到人工智能时代</p>
@@ -206,7 +206,7 @@ export default () => {
           </div>
         </Show>
 
-        <div class="w-[512px]">
+        <div class="w-full md:w-[512px]">
           <Index each={imgs()}>
             {img => (
               <div class="group mt-4 rounded-lg">
