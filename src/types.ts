@@ -24,3 +24,11 @@ export interface Setting {
   continuousDialogue: boolean
   flomoApi: string
 }
+
+export interface Img {
+  img: string
+  prompt: string
+  prompt_cn: string
+  seed: string
+  nickname: string
+}

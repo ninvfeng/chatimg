@@ -25,10 +25,12 @@ export default (props: Props) => {
     })
     const responseJson = await response.json()
     if (responseJson.code === 200) {
+      // eslint-disable-next-line no-alert
       alert(responseJson.data.msg)
       props.setUser(responseJson.data)
       props.setShowCharge(false)
     } else {
+      // eslint-disable-next-line no-alert
       alert(responseJson.message)
     }
   }
@@ -79,6 +81,7 @@ export default (props: Props) => {
           if (responseJson.code === 200) {
             if (responseJson.data.msg === '充值已到账') {
               props.setUser(responseJson.data)
+              // eslint-disable-next-line no-alert
               alert(responseJson.data.msg)
               props.setShowCharge(false)
               setUrl('')
@@ -87,6 +90,7 @@ export default (props: Props) => {
         }
       }, 3000)
     } else {
+      // eslint-disable-next-line no-alert
       alert(responseJson.message)
     }
   }

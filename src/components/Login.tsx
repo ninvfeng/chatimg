@@ -30,12 +30,14 @@ export default (props: Props) => {
       props.setIsLogin(true)
       props.setUser(responseJson.data)
     } else {
+      // eslint-disable-next-line no-alert
       alert(responseJson.message)
     }
   }
 
   const sendCode = async() => {
     if (!emailRef.value)
+    // eslint-disable-next-line no-alert
       alert('请输入邮箱')
 
     setCountdown(60)
@@ -55,6 +57,7 @@ export default (props: Props) => {
     })
     const responseJson = await response.json()
     if (responseJson.code !== 200) {
+      // eslint-disable-next-line no-alert
       alert(responseJson.message)
       setCountdown(3)
     }

@@ -81,7 +81,7 @@ export default ({ role, message, showRetry, onRetry, setting }: Props) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        content: `${message}\n #ChatGPT`,
+        content: `${message}\n #ChatImg`,
       }),
     })
     const responseJson = await response.json()
