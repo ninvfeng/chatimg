@@ -167,63 +167,65 @@ export default () => {
         />
       </Show>
 
-      <Show when={countdown() <= 0}>
-        <div class="gen-text-wrapper" class:op-50={systemRoleEditing()}>
-          <textarea
-            ref={inputRef!}
-            disabled={systemRoleEditing()}
-            onKeyDown={handleKeydown}
-            placeholder="请输入绘画要求"
-            autocomplete="off"
-            autofocus
-            onInput={() => {
-              inputRef.style.height = 'auto'
-              inputRef.style.height = `${inputRef.scrollHeight}px`
-            }}
-            rows="1"
-            class="gen-textarea"
-          />
-          <button
-            onClick={handleButtonClick}
-            h-12
-            px-2
-            py-2
-            bg-slate
-            bg-op-15
-            hover:bg-op-20
-            rounded-sm
-            w-20
-          >
-            发送
-          </button>
-        </div>
-      </Show>
+      <Show when={isLogin()}>
+        <Show when={countdown() <= 0}>
+          <div class="gen-text-wrapper" class:op-50={systemRoleEditing()}>
+            <textarea
+              ref={inputRef!}
+              disabled={systemRoleEditing()}
+              onKeyDown={handleKeydown}
+              placeholder="请输入绘画要求"
+              autocomplete="off"
+              autofocus
+              onInput={() => {
+                inputRef.style.height = 'auto'
+                inputRef.style.height = `${inputRef.scrollHeight}px`
+              }}
+              rows="1"
+              class="gen-textarea"
+            />
+            <button
+              onClick={handleButtonClick}
+              h-12
+              px-2
+              py-2
+              bg-slate
+              bg-op-15
+              hover:bg-op-20
+              rounded-sm
+              w-20
+            >
+              发送
+            </button>
+          </div>
+        </Show>
 
-      <Show when={countdown() > 0}>
-        <div class="gen-cb-wrapper">
-          <span>AI正在绘画...{countdown()}秒</span>
-        </div>
-      </Show>
+        <Show when={countdown() > 0}>
+          <div class="gen-cb-wrapper">
+            <span>AI正在绘画...{countdown()}秒</span>
+          </div>
+        </Show>
 
-      <div class="w-[512px]">
-        <Index each={imgs()}>
-          {img => (
-            <div class="group mt-4 rounded-lg">
-              <img src={img().img} alt="" srcset="" />
-              <div class="bg-gray-100 text-gray-500 group-hover:bg-gray-200 group-hover:text-gray-600 px-2 py-2">
-                <div class="px-2 mt-1">提示词: {img().prompt}</div>
-                <div class="px-2 mt-1">提示词(中文): {img().prompt_cn}</div>
-                <div class="px-2 mt-1">用户: {img().nickname}</div>
+        <div class="w-[512px]">
+          <Index each={imgs()}>
+            {img => (
+              <div class="group mt-4 rounded-lg">
+                <img src={img().img} alt="" srcset="" />
+                <div class="bg-gray-100 text-gray-500 group-hover:bg-gray-200 group-hover:text-gray-600 px-2 py-2">
+                  <div class="px-2 mt-1">提示词: {img().prompt}</div>
+                  <div class="px-2 mt-1">提示词(中文): {img().prompt_cn}</div>
+                  <div class="px-2 mt-1">用户: {img().nickname}</div>
+                </div>
               </div>
-            </div>
-          )}
-        </Index>
-      </div>
-
-      <Show when={imgs().length >= 1}>
-        <div onclick={loadmore} class="gen-cb-wrapper cursor-pointer">
-          <span>加载更多</span>
+            )}
+          </Index>
         </div>
+
+        <Show when={imgs().length >= 1}>
+          <div onclick={loadmore} class="gen-cb-wrapper cursor-pointer">
+            <span>加载更多</span>
+          </div>
+        </Show>
       </Show>
 
     </div >
