@@ -69,7 +69,7 @@ export default () => {
       body: JSON.stringify({
         token: localStorage.getItem('token'),
         page: page(),
-        size: 1,
+        size: 10,
       }),
     })
     const responseJson = await response.json()
@@ -220,7 +220,6 @@ export default () => {
             )}
           </Index>
         </div>
-
         <Show when={imgs().length >= 1}>
           <div onclick={loadmore} class="gen-cb-wrapper cursor-pointer">
             <span>加载更多</span>
