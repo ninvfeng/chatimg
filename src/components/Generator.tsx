@@ -95,7 +95,7 @@ export default () => {
     if (!inputValue)
       return
 
-    setCountdown(20)
+    setCountdown(60)
     const intv = setInterval(() => {
       setCountdown(countdown() - 1)
       if (countdown() <= 0)
