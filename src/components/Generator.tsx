@@ -98,8 +98,10 @@ export default () => {
     setCountdown(60)
     const intv = setInterval(() => {
       setCountdown(countdown() - 1)
-      if (countdown() <= 0)
+      if (countdown() <= 0) {
         clearInterval(intv)
+        getList()
+      }
     }, 1000)
 
     const response = await fetch('/api/genimg', {
@@ -147,7 +149,7 @@ export default () => {
       <div class="flex items-center">
         <Show when={isLogin() && user().nickname}>
           <p mt-1 op-60>
-            Hi,{user().nickname} 本月剩余额度{user().times}次
+            Hi,{user().nickname} 剩余额度{user().times}次,每张图消耗10次
             <span onClick={() => { setShowCharge(true) }} class="border-1 px-2 py-1 ml-2 rounded-md transition-colors bg-slate/20 cursor-pointer hover:bg-slate/50">充值</span>
           </p>
         </Show>

@@ -100,7 +100,7 @@ export default (props: Props) => {
       <div>
         <Show when={!url()}>
           <span class="text-sm">
-            请选择充值金额,充值的次数仅当月有效,请按需充值
+            请选择充值金额,每张图消耗10次次数
           </span>
           <div class="flex space-x-2">
             <button onClick={() => { getPaycode(1) }} class="w-1/3 h-12 mt-2 px-4 py-2 bg-slate bg-op-15 hover:bg-op-20 rounded-sm">
