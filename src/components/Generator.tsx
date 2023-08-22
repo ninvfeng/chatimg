@@ -100,7 +100,7 @@ export default () => {
       setCountdown(countdown() - 1)
       if (countdown() <= 0) {
         clearInterval(intv)
-        getList()
+        location.reload()
       }
     }, 1000)
 
